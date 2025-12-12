@@ -91,19 +91,19 @@ const PartnersPage: React.FC = () => {
       </section>
 
       {/* ================= CALL TO ACTION ================= */}
-      <section className="bg-corporate-gold py-16">
+      <section className=" py-16">
         <div className="container mx-auto px-6 max-w-7xl text-center">
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#0A1F44] mb-6">
             Interested in Partnering with Us?
           </h3>
-                 <motion.a
-                         href="/contact"
-                         whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-                         whileTap={{ scale: 0.95 }}
-                         className="inline-block px-12 py-5 text-lg md:text-xl font-bold bg-corporate-gold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-                       >
-                        Reach Our Partnership Team →
-                       </motion.a>
+          <motion.a
+            href="/contact"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+          >
+            Reach Our Partnership Team →
+          </motion.a>
         </div>
       </section>
     </div>

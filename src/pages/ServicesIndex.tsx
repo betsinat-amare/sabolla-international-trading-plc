@@ -8,23 +8,23 @@ import { motion } from 'framer-motion';
 const Icons: { [key: string]: React.FC<{ className: string }> } = {
   TradeConsulting: ({ className }) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.51 23.51 0 0112 15c-3.18 0-6.23-.74-9-2.245M12 12V3m0 9l3.52 2.03m-3.52-2.03L8.48 14.03"/>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.51 23.51 0 0112 15c-3.18 0-6.23-.74-9-2.245M12 12V3m0 9l3.52 2.03m-3.52-2.03L8.48 14.03" />
     </svg>
   ),
   Logistics: ({ className }) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7L12 3 4 7m16 0v10l-8 4-8-4V7"/>
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v18"/>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7L12 3 4 7m16 0v10l-8 4-8-4V7" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v18" />
     </svg>
   ),
   Compliance: ({ className }) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 4.04A11.955 11.955 0 002.944 12c.045 2.12.87 4.14 2.378 5.75.925.753 2.02 1.403 3.25 1.836M12 21.056c-2.12 0-4.14-.87-5.75-2.378-.753-.925-1.403-2.02-1.836-3.25"/>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 4.04A11.955 11.955 0 002.944 12c.045 2.12.87 4.14 2.378 5.75.925.753 2.02 1.403 3.25 1.836M12 21.056c-2.12 0-4.14-.87-5.75-2.378-.753-.925-1.403-2.02-1.836-3.25" />
     </svg>
   ),
   Sourcing: ({ className }) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-9 0V3h10v2M9 5h6m-3 0v11"/>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-9 0V3h10v2M9 5h6m-3 0v11" />
     </svg>
   ),
 };
@@ -182,15 +182,15 @@ const ServicesIndex: React.FC = () => {
           <p className="text-lg text-[#D4AF37] mb-6">
             Our specialists are ready to simplify your most complex import and export challenges.
           </p>
-         
-             <motion.a
-               href="/contact"
-               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-               whileTap={{ scale: 0.95 }}
-               className="inline-block px-12 py-5 text-lg md:text-xl font-bold bg-corporate-gold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-             >
-              Get a Consultation
-             </motion.a>
+
+          <motion.a
+            href="/contact"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-12 py-5 text-lg md:text-xl font-bold  border-2 border-[#D4AF37] text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+          >
+            Contact Us
+          </motion.a>
         </div>
       </section>
     </div>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-r from-[#0f172a] via-[#0b1f3a] to-[#0f172a] 
-    text-white border-t-4 border-corporate-gold">
+    text-white ">
 
       <div className="container mx-auto px-6 py-16">
 

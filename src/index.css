@@ -1,5 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-corporate-blue: #0c2d48;
+  --color-corporate-gold: #b19747;
+  --color-neutral-gray: #f3f4f6;
+}
+
+:root {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html, body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
 /* Hide scrollbar for slider */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
