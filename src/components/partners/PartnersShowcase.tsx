@@ -122,11 +122,11 @@ const PartnersShowcase = () => {
               {activePartner.name}
             </h3>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            {/* <p className="text-gray-700 leading-relaxed mb-6">
               {activePartner.description}
-            </p>
+            </p> */}
 
-            {activePartner.website && (
+            {/* {activePartner.website && (
               <a
                 href={activePartner.website}
                 target="_blank"
@@ -135,7 +135,7 @@ const PartnersShowcase = () => {
               >
                 Visit Website →
               </a>
-            )}
+            )} */}
 
             <div>
               <button

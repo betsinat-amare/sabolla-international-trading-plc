@@ -244,15 +244,17 @@ const AboutPage: React.FC = () => {
             Partner with Sabolla International for compliant, efficient, and profitable trade solutions.
             Our experienced team ensures seamless market entry and sustained growth.
           </motion.p>
+          <Link to='/contact'>
 
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block border-2 border-[#D4AF37] px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full  mb-4 transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-          >
-            Start Trading Today
-          </motion.a>
+            <motion.a
+
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block border-2 border-[#D4AF37] px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full  mb-4 transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+            >
+              Start Trading Today
+            </motion.a>
+          </Link>
 
         </div>
       </section>

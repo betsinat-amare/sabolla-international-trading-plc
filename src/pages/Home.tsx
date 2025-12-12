@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PartnersShowcase from "../components/partners/PartnersShowcase";
 
 import TestimonialsSection from "../components/layout/TestimonialsSection";
-import GoogleMapFrame from "../components/layout/MapRoute";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },

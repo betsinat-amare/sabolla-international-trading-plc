@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import PartnersShowcase from "../components/partners/PartnersShowcase";
+import { Link } from "react-router-dom";
 
 
 const PartnersPage: React.FC = () => {
@@ -96,14 +97,16 @@ const PartnersPage: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#0A1F44] mb-6">
             Interested in Partnering with Us?
           </h3>
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-          >
-            Reach Our Partnership Team →
-          </motion.a>
+          <Link to='/contact'>
+            <motion.a
+
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+            >
+              Reach Our Partnership Team →
+            </motion.a>
+          </Link>
         </div>
       </section>
     </div>

@@ -182,15 +182,16 @@ const ServicesIndex: React.FC = () => {
           <p className="text-lg text-[#D4AF37] mb-6">
             Our specialists are ready to simplify your most complex import and export challenges.
           </p>
+          <Link to='/contact'>
+            <motion.a
 
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-12 py-5 text-lg md:text-xl font-bold  border-2 border-[#D4AF37] text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-          >
-            Contact Us
-          </motion.a>
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-12 py-5 text-lg md:text-xl font-bold  border-2 border-[#D4AF37] text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+            >
+              Contact Us
+            </motion.a>
+          </Link>
         </div>
       </section>
     </div>
