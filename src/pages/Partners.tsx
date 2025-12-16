@@ -2,6 +2,8 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import PartnersShowcase from "../components/partners/PartnersShowcase";
+import { PARTNERS } from "../data/partners";
+import { LOCAL_PARTNERS } from "../data/localPartners";
 
 
 const PartnersPage: React.FC = () => {
@@ -75,18 +77,31 @@ const PartnersPage: React.FC = () => {
       </section>
 
       {/* ================= PARTNER LOGOS - SCROLLING CAROUSEL ================= */}
-      <section className="py-20 bg-slate-50 relative overflow-hidden">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <h2 className="text-4xl font-extrabold text-[#0A1F44] mb-12 text-center">
-            <span className="text-corporate-gold">International</span> Suppliers & Strategic Partners
+            <section className="relative py-28 bg-linear-to-b from-slate-100 to-white overflow-hidden">
+        <div className="relative container mx-auto px-6 max-w-7xl">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-[#0A1F44] mb-6">
+            Our Trusted Global Partners
           </h2>
 
-          <div
-            ref={sliderRef}
-            className="flex gap-8 overflow-hidden whitespace-nowrap py-8"
-          >
-            <PartnersShowcase />
-          </div>
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+            We collaborate with globally recognized manufacturers and technology leaders
+            to deliver premium solutions into Ethiopia.
+          </p>
+{/* International Partners */}
+<section className="py-24 bg-white">
+  <h2 className="text-4xl font-bold text-center mb-10">
+    International Partners
+  </h2>
+  <PartnersShowcase partners={PARTNERS} />
+</section>
+
+{/* Local & Government Partners */}
+<section className="py-24 bg-slate-50">
+  <h2 className="text-4xl font-bold text-center mb-10">
+    Local & Government Partners
+  </h2>
+  <PartnersShowcase partners={LOCAL_PARTNERS} />
+</section>
         </div>
       </section>
 

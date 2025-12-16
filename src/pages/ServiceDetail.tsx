@@ -23,6 +23,7 @@ const getDetailedServiceContent = (slug: string) => {
       { title: "Sourcing & Compliance", content: "Identifying reliable local partners and ensuring all products and processes meet Ethiopian standards (ES) and international quality regulations." },
       { title: "Logistics & Risk Management", content: "Seamless coordination of global shipping, local storage, and distribution, while proactively identifying and mitigating supply chain risks." },
       { title: "Operational Support", content: "End-to-end support, including meticulous documentation, efficient ground handling, and securing necessary governmental permissions without delay." },
+      
     ]
   };
 };

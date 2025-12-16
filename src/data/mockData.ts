@@ -21,6 +21,10 @@ export const PRODUCT_CATEGORIES = [
   { name: "Fire & Disaster Management", slug: "fire-disaster", description: "Fire trucks, ladders, foam, powder" },
   { name: "Safety & Security", slug: "safety-security", description: "Fire suits, breathing apparatus" },
   { name: "Agricultural Implements", slug: "agriculture", description: "Hermetic & jute bags" },
+  // { name: "Water and Sewerage Industry", slug: "Water and Sewerage Industry", description: "Water and Sewerage Industry"" },
+  // { name: "Power and Energy", slug: "Power and Energy", description: "Power and Energy" },
+  // { name: "Transportation and Storage", slug: "Transportation and Storage", description: "Transportation and Storage" },
+
   // ... rest of the categories
 ];
 
