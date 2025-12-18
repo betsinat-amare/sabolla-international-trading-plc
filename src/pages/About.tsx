@@ -2,34 +2,24 @@
 import React, { useState } from 'react';
 import { ACHIEVEMENTS } from '../data/mockData';
 import AchievementCard from '../components/ui/AchievementCard';
+import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
-// Icons for the tabbed interface (assuming you use a library like 'lucide-react')
-// import { Zap, Target, ScrollText, ChevronRight } from 'lucide-react'; 
-
-// --- Dummy Icons for placeholder ---
-const Zap = ({ className }: { className: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>;
-const Target = ({ className }: { className: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>;
-const ScrollText = ({ className }: { className: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 22h-8a4 4 0 0 1-4-4V7a4 4 0 0 0-4-4h16v18a2 2 0 0 1-2 2Z" /><path d="M10 8h4" /><path d="M10 12h4" /><path d="M10 16h4" /></svg>;
-// --- End Dummy Icons ---
 
 
 const VISION_MISSION_VALUES = [
   {
     key: 'mission',
     title: 'Our Mission',
-    icon: Target,
     content: "To be the leading facilitator of Sino-Ethiopian trade, delivering expert services grounded in professionalism, integrity, and thorough knowledge of Ethiopia’s commercial and logistical environment. We are committed to simplifying complex trade processes for our partners.",
   },
   {
     key: 'vision',
     title: 'Our Vision',
-    icon: Zap,
     content: "To create a seamless, efficient, and highly compliant trade corridor, establishing Sabolla International as the indispensable partner for global manufacturers seeking sustainable growth and deep market penetration within the rapidly developing Ethiopian economy.",
   },
   {
     key: 'values',
     title: 'Core Values',
-    icon: ScrollText,
     content: "Integrity (Uncompromising ethics in all dealings), Reliability (Consistent and timely delivery), Expertise (Deep regulatory and market knowledge), and Partnership (Long-term, mutually beneficial relationships).",
   },
 ];
@@ -41,53 +31,53 @@ const AboutPage: React.FC = () => {
   const activeContent = VISION_MISSION_VALUES.find(item => item.key === activeTab);
 
   return (
-    <div className=" bg-white overflow-hidden">
+    <div className="bg-white w-full min-h-screen overflow-hidden">
 
-   {/* ================= HERO - IMAGE BACKGROUND ================= */}
-<section
-  className="relative py-32 md:py-40 overflow-hidden shadow-2xl bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage:
-      'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80")',
-  }}
->
-  {/* Optional overlay for better text contrast */}
-  <div className="absolute inset-0 bg-[#0A1F44]/60 "></div>
+      {/* ================= HERO - IMAGE BACKGROUND ================= */}
+      <section
+        className="relative w-full py-32 md:py-40 overflow-hidden shadow-2xl bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80")',
+        }}
+      >
+        {/* Optional overlay for better text contrast */}
+        <div className="absolute inset-0 bg-[#0A1F44]/60 "></div>
 
-  {/* Soft Glow */}
-  <div className="absolute top-10 left-10 w-60 h-60 bg-corporate-gold/30  rounded-full pointer-events-none"></div>
-  <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full pointer-events-none"></div>
+        {/* Soft Glow */}
+        <div className="absolute top-10 left-10 w-60 h-60 bg-corporate-gold/30  rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full pointer-events-none"></div>
 
-  <div className="relative z-10 container mx-auto px-6 text-center">
-    <motion.h1
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight"
-      style={{
-        // Metallic/chrome effect on text
-        textShadow: '0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.1)',
-        backgroundImage: 'linear-gradient(120deg, #FFFFFF 30%, #F5D783 50%, #B8A76B 70%, #FFFFFF 90%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-      }}
-    >
-      A Legacy of Trust in International Trade
-    </motion.h1>
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight"
+            style={{
+              // Metallic/chrome effect on text
+              textShadow: '0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.1)',
+              backgroundImage: 'linear-gradient(120deg, #FFFFFF 30%, #F5D783 50%, #B8A76B 70%, #FFFFFF 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            A Legacy of Trust in International Trade
+          </motion.h1>
 
-    <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2, duration: 0.8 }}
-      className="text-xl md:text-2xl text-gray-200 font-light max-w-4xl mx-auto"
-    >
-      Two decades of connecting global manufacturers with Ethiopian markets through{' '}
-      <span className="font-semibold text-white">
-        precision, compliance, and undeniable reliability.
-      </span>
-    </motion.p>
-  </div>
-</section>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xl md:text-2xl text-gray-200 font-light max-w-4xl mx-auto"
+          >
+            Two decades of connecting global manufacturers with Ethiopian markets through{' '}
+            <span className="font-semibold text-white">
+              precision, compliance, and undeniable reliability.
+            </span>
+          </motion.p>
+        </div>
+      </section>
 
 
       {/* ================= ABOUT CONTENT – INTERACTIVE VMV & SERVICES ================= */}
@@ -102,10 +92,10 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <p className="text-sm font-semibold text-corporate-gold uppercase mb-2 tracking-widest">
-                Our Foundation
+              Our Foundation
             </p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0A1F44] mb-8 leading-tight">
-              SABOLLA International: <br className="hidden lg:inline"/>Defining <span className="text-corporate-blue">Global Trade</span>
+              SABOLLA International: <br className="hidden lg:inline" />Defining <span className="text-corporate-blue">Global Trade</span>
             </h2>
 
             {/* TAB BUTTONS */}
@@ -115,16 +105,16 @@ const AboutPage: React.FC = () => {
                   key={item.key}
                   onClick={() => setActiveTab(item.key)}
                   className={`py-3 px-4 text-lg font-semibold transition-all duration-300 relative group
-                    ${activeTab === item.key 
-                      ? 'text-corporate-blue' 
+                    ${activeTab === item.key
+                      ? 'text-corporate-blue'
                       : 'text-gray-500 hover:text-corporate-gold'}
                   `}
                 >
                   {item.title}
-                  <div 
+                  <div
                     className={`absolute bottom-0 left-0 h-1 rounded-t-lg transition-all duration-300
-                      ${activeTab === item.key 
-                        ? 'w-full bg-corporate-gold' 
+                      ${activeTab === item.key
+                        ? 'w-full bg-corporate-gold'
                         : 'w-0 bg-corporate-blue group-hover:w-full'}
                     `}
                   />
@@ -142,10 +132,7 @@ const AboutPage: React.FC = () => {
             >
               {activeContent && (
                 <>
-                  <div className="flex items-center text-corporate-blue mb-4">
-                    <activeContent.icon className="w-8 h-8 mr-3 fill-corporate-gold/20 stroke-corporate-blue"/>
-                    <h3 className="text-2xl font-bold text-[#0A1F44]">{activeContent.title}</h3>
-                  </div>
+                  <h3 className="text-2xl font-bold text-[#0A1F44] mb-4">{activeContent.title}</h3>
                   <p className="text-xl text-gray-700 leading-relaxed">
                     {activeContent.content}
                   </p>
@@ -166,22 +153,18 @@ const AboutPage: React.FC = () => {
               {
                 title: "Advisory Services",
                 desc: "Strategic market entry guidance and regulatory navigation. We clear the path to success.",
-                iconColor: "corporate-blue"
               },
               {
                 title: "Global Sourcing",
                 desc: "Direct access to trusted international manufacturers and premium product lines.",
-                iconColor: "corporate-gold"
               },
               {
                 title: "Supply Chain Mastery",
                 desc: "End-to-end logistics, coordination, and compliance management for efficiency.",
-                iconColor: "corporate-gold"
               },
               {
                 title: "Import Facilitation",
                 desc: "Smooth cross-border trade with full regulatory alignment and risk mitigation.",
-                iconColor: "corporate-blue"
               },
             ].map((item, i) => (
               <motion.div
@@ -193,10 +176,6 @@ const AboutPage: React.FC = () => {
                 transition={{ type: "spring", stiffness: 150, delay: i * 0.1 }}
                 className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 group transition-all duration-300 cursor-pointer hover:ring-4 hover:ring-corporate-gold/50"
               >
-                <div className={`w-14 h-14 rounded-xl bg-${item.iconColor}/10 text-${item.iconColor} flex items-center justify-center mb-5 text-xl font-extrabold transition-all duration-300 group-hover:bg-${item.iconColor} group-hover:text-white`}>
-                  {i + 1}
-                </div>
-
                 <h4 className="text-xl font-bold text-[#0A1F44] mb-3">
                   {item.title}
                 </h4>
@@ -214,7 +193,7 @@ const AboutPage: React.FC = () => {
       <section className="relative py-28 bg-linear-to-b from-slate-50 to-white overflow-hidden border-t border-slate-100">
 
         <div className="relative container mx-auto px-6 max-w-7xl">
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -227,7 +206,7 @@ const AboutPage: React.FC = () => {
           {/* AchievementCard will handle the 'motion' and counter effect */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {ACHIEVEMENTS.map((achievement, index) => (
-              <AchievementCard 
+              <AchievementCard
                 key={index}
                 value={achievement.value}
                 label={achievement.label}
@@ -239,43 +218,46 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* ================= CALL TO ACTION - PREMIUM ================= */}
-<section>
-  {/* Decorative blurred shapes */}
-  <div className="absolute -top-32 -left-32 w-72 h-72 bg-corporate-gold/20 blur-3xl rounded-full pointer-events-none"></div>
-  <div className="absolute -bottom-32 -right-32 w-72 h-72 bg-corporate-blue/20 blur-3xl rounded-full pointer-events-none"></div>
+      <section>
+        {/* Decorative blurred shapes */}
+        <div className="absolute -top-32 -left-32 w-72 h-72 bg-corporate-gold/20 blur-3xl rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-32 -right-32 w-72 h-72 bg-corporate-blue/20 blur-3xl rounded-full pointer-events-none"></div>
 
-  <div className="relative container mx-auto px-6 max-w-4xl text-center">
-    <motion.h3
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="text-4xl md:text-5xl font-extrabold text-[#0A1F44] mb-6 leading-tight"
-    >
-      Ready to Expand into the <span className="text-corporate-gold">Ethiopian Market?</span>
-    </motion.h3>
+        <div className="relative container mx-auto px-6 max-w-4xl text-center">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-extrabold text-[#0A1F44] mb-6 leading-tight"
+          >
+            Ready to Expand into the <span className="text-corporate-gold">Ethiopian Market?</span>
+          </motion.h3>
 
-    <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.2, duration: 0.8 }}
-      className="text-lg md:text-xl text-[#0A1F44] mb-10 leading-relaxed"
-    >
-      Partner with Sabolla International for compliant, efficient, and profitable trade solutions. 
-      Our experienced team ensures seamless market entry and sustained growth.
-    </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-lg md:text-xl text-[#0A1F44] mb-10 leading-relaxed"
+          >
+            Partner with Sabolla International for compliant, efficient, and profitable trade solutions.
+            Our experienced team ensures seamless market entry and sustained growth.
+          </motion.p>
+          <Link to='/contact'>
 
-         <motion.a
-                 href="/contact"
-                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
-                 whileTap={{ scale: 0.95 }}
-                 className="inline-block px-12 py-5 text-lg md:text-xl font-bold bg-corporate-gold text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
-               >
-                Start Trading Today
-               </motion.a>
-  </div>
-</section>
+            <motion.a
+
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block border-2 border-[#D4AF37] px-12 py-5 text-lg md:text-xl font-bold text-[#D4AF37] rounded-full  mb-4 transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+            >
+              Start Trading Today
+            </motion.a>
+          </Link>
+
+        </div>
+      </section>
 
 
     </div>
