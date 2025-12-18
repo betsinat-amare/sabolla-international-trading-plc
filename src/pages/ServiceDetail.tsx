@@ -25,6 +25,20 @@ const getDetailedServiceContent = (slug: string) => {
             { title: "Operational Support", content: "End-to-end support, including meticulous documentation, efficient ground handling, and securing necessary governmental permissions without delay." },
         ]
     };
+  const service = SERVICES_LIST.find(s => s.slug === slug);
+  if (!service) return null;
+
+  return {
+    ...service,
+    details: [
+      { title: "Regulatory Guidance", content: "Expert assistance navigating Ethiopian trade laws, customs duties, and import/export licensing requirements. Ensure 100% compliance from day one." },
+      { title: "Market Intelligence", content: "Up-to-date local market assessments, consumer trends, and competitor analysis to inform your strategic decision-making in the region." },
+      { title: "Sourcing & Compliance", content: "Identifying reliable local partners and ensuring all products and processes meet Ethiopian standards (ES) and international quality regulations." },
+      { title: "Logistics & Risk Management", content: "Seamless coordination of global shipping, local storage, and distribution, while proactively identifying and mitigating supply chain risks." },
+      { title: "Operational Support", content: "End-to-end support, including meticulous documentation, efficient ground handling, and securing necessary governmental permissions without delay." },
+      
+    ]
+  };
 };
 
 // --- Framer Motion Variants (Unchanged for timeline) ---

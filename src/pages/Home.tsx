@@ -1,21 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+// import PartnersShowcase from "../components/partners/PartnersShowcase";
+import GlobalFootprint from "../components/sections/GlobalFootprint";
 import PartnersShowcase from "../components/partners/PartnersShowcase";
 
 import TestimonialsSection from "../components/layout/TestimonialsSection";
+import { PARTNERS } from "../data/partners";
+import { LOCAL_PARTNERS } from "../data/localPartners";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
 };
 
-// Words used to render the animated tagline in the hero heading
-
 const Home: React.FC = () => {
-
   return (
-    <div className="bg-slate-50">
+    <div className="w-full overflow-x-hidden">
 
       {/* ================= HERO ================= */}
       <section className="relative min-h-[92vh] flex items-center justify-center text-[#D4AF37] overflow-hidden">
@@ -29,6 +31,8 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-black/65" />
         <div className="relative z-10 container mx-auto px-6 max-w-6xl text-center">
 
+
+        <div className="relative z-10 container mx-auto px-6 max-w-6xl text-center">
           <motion.p
             initial="hidden"
             animate="visible"
@@ -40,6 +44,7 @@ const Home: React.FC = () => {
           </motion.p>
 
           <h1 className="text-5xl md:text-7xl font-extrabold mb-8 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 leading-tight text-white">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -59,6 +64,8 @@ const Home: React.FC = () => {
             growing market. With over 20 years of expertise in trade representation, we provide
             comprehensive solutions including advisory services, market insights, sourcing,
             import and export facilitation, and supply chain management.
+            advisory services, market insights, sourcing, import & export facilitation, and
+            supply chain management.
           </motion.p>
 
           <motion.p
@@ -84,11 +91,15 @@ const Home: React.FC = () => {
             >
               <span className="text-lg">Explore Our Services</span>
               <span className="text-xl">→</span>
+              className="bg-corporate-gold text-corporate-blue font-bold py-4 px-12 rounded-full hover:scale-105 hover:shadow-xl transition"
+            >
+              Explore Our Services
             </Link>
 
             <Link
               to="/contact"
               className="inline-flex items-center justify-center gap-2 border-2 border-[#D4AF37] bg-transparent text-corporate-gold  font-bold py-4 px-12 rounded-full transition-all duration-300  hover:text-white hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1F44]"
+              className="border-2 border-[#D4AF37] py-4 px-12 rounded-full hover:bg-white hover:text-corporate-blue transition text-white"
             >
               Talk to an Expert
             </Link>
@@ -96,6 +107,7 @@ const Home: React.FC = () => {
 
           {/* ================= STATS ================= */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 ">
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "20+", label: "Years Experience" },
               { value: "100+", label: "International Suppliers" },
@@ -112,6 +124,14 @@ const Home: React.FC = () => {
               >
                 <div className="text-4xl font-extrabold text-white mb-2">{stat.value}</div>
                 <div className="text-xs uppercase tracking-widest text-gray-200">{stat.label}</div>
+                className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20"
+              >
+                <div className="text-4xl font-extrabold text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-xs uppercase tracking-widest text-gray-200">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -123,6 +143,9 @@ const Home: React.FC = () => {
       {/* ================= INTRO ================= */}
       <section className="relative py-28 bg-white">
         <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-slate-100"></div>
+      {/* ================= INTRO ================= */}
+      <section className="relative py-28 bg-white">
+        <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-slate-100" />
 
         <div className="relative container mx-auto px-6 max-w-5xl text-center">
           <motion.h2
@@ -193,6 +216,15 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+            and Ethiopia’s rapidly growing marketplace. We deliver market entry strategies,
+            regulatory guidance, sourcing, logistics coordination, and long-term partnership
+            development.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ================= GLOBAL FOOTPRINT ================= */}
+      <GlobalFootprint />
 
       {/* ================= PARTNERS ================= */}
       <section className="relative py-28 bg-linear-to-b from-slate-100 to-white overflow-hidden">
@@ -214,6 +246,26 @@ const Home: React.FC = () => {
         <TestimonialsSection />
       </section>
 
+            We collaborate with globally recognized manufacturers and technology leaders
+            to deliver premium solutions into Ethiopia.
+          </p>
+{/* International Partners */}
+<section className="py-24 bg-white">
+  <h2 className="text-4xl font-bold text-center mb-10">
+    International Partners
+  </h2>
+  <PartnersShowcase partners={PARTNERS} />
+</section>
+
+{/* Local & Government Partners */}
+<section className="py-24 bg-slate-50">
+  <h2 className="text-4xl font-bold text-center mb-10">
+    Local & Government Partners
+  </h2>
+  <PartnersShowcase partners={LOCAL_PARTNERS} />
+</section>
+        </div>
+      </section>
 
       {/* ================= CTA ================= */}
       <section className="relative py-28 text-white text-center overflow-hidden">
@@ -225,6 +277,7 @@ const Home: React.FC = () => {
           }}
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#0A1F44]/90 via-black/70 to-[#0A1F44]/90"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#0A1F44]/90 via-black/70 to-[#0A1F44]/90" />
 
         <div className="relative z-10 container mx-auto px-6 max-w-5xl">
           <motion.h3
@@ -248,6 +301,9 @@ const Home: React.FC = () => {
               className="inline-block border-2 border-[#D4AF37] text-[#D4AF37] font-bold py-4 px-14 rounded-full hover:scale-105 hover:shadow-xl transition"
             >
               Contact Us
+              className="inline-block bg-[#D4AF37] text-[#0A1F44] font-bold py-4 px-14 rounded-full hover:scale-105 hover:shadow-xl transition"
+            >
+              Book a Consultation
             </Link>
           </motion.div>
         </div>
