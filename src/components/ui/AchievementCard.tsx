@@ -10,8 +10,8 @@ interface AchievementProps {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { type: "spring", stiffness: 90 }
   },
@@ -20,21 +20,18 @@ const cardVariants: Variants = {
 const AchievementCard: React.FC<AchievementProps> = ({ value, label, delay }) => {
   return (
     <motion.div
-      className="relative text-center p-8 rounded-xl bg-white/90 backdrop-blur shadow-xl border border-gray-200 hover:-translate-y-2 transition-transform"
+      className="relative text-center p-8 rounded-3xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-[#308667]/20 hover:border-[#308667] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.8 }}
       transition={{ delay }}
     >
-      {/* Accent Glow */}
-      <div className="absolute inset-x-0 -top-1 h-1 bg-gradient-to-r from-corporate-gold to-corporate-blue rounded-full" />
-
-      <h3 className="text-5xl font-extrabold text-corporate-blue mb-3">
+      <h3 className="text-4xl md:text-6xl font-black text-[#308667] mb-4 group-hover:scale-110 transition-transform duration-300">
         {value}
       </h3>
 
-      <p className="text-gray-700 font-semibold uppercase tracking-wider text-sm">
+      <p className="text-[#122C21] font-bold uppercase tracking-widest text-xs md:text-sm">
         {label}
       </p>
     </motion.div>

@@ -3,35 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { SERVICES_LIST } from '../data/mockData';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import bgPattern from '../assets/about_hero_pattern.png';
+import { FaShieldAlt, FaChartBar, FaShip, FaCubes, FaArrowRight } from 'react-icons/fa';
 
-// --- Placeholder Icons (Replace with real icons if desired) ---
-const Icons: { [key: string]: React.FC<{ className: string }> } = {
-  TradeConsulting: ({ className }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.51 23.51 0 0112 15c-3.18 0-6.23-.74-9-2.245M12 12V3m0 9l3.52 2.03m-3.52-2.03L8.48 14.03" />
-    </svg>
-  ),
-  Logistics: ({ className }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7L12 3 4 7m16 0v10l-8 4-8-4V7" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v18" />
-    </svg>
-  ),
-  Compliance: ({ className }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 4.04A11.955 11.955 0 002.944 12c.045 2.12.87 4.14 2.378 5.75.925.753 2.02 1.403 3.25 1.836M12 21.056c-2.12 0-4.14-.87-5.75-2.378-.753-.925-1.403-2.02-1.836-3.25" />
-    </svg>
-  ),
-  Sourcing: ({ className }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-9 0V3h10v2M9 5h6m-3 0v11" />
-    </svg>
-  ),
+// --- Placeholder Icons (Unified with Service Detail) ---
+const Icons: { [key: string]: React.ReactNode } = {
+  "Trade Consulting": <FaShieldAlt />,
+  "Logistics Support": <FaShip />,
+  "Compliance & Regulatory": <FaChartBar />, // Adapted mapping
+  "Sourcing": <FaCubes />,
 };
 
-const getIcon = (index: number) => {
-  const keys = Object.keys(Icons);
-  return Icons[keys[index % keys.length]];
+const getIcon = (name: string) => {
+  // Simple check to match name to icon
+  return Icons[name] || <FaShieldAlt />;
 };
 
 // Animation variants for cards
@@ -39,10 +24,8 @@ const cardVariants = {
   initial: { y: 20, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   hover: {
-    y: -6,
-    scale: 1.02,
-    boxShadow: "0 15px 30px rgba(10,31,68,0.15)",
-    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+    y: -10,
+    transition: { type: "spring" as const, stiffness: 300, damping: 20 },
   },
 };
 
@@ -55,115 +38,84 @@ const ServicesIndex: React.FC = () => {
     return () => window.removeEventListener('scroll', handle);
   }, []);
 
-  const floatingShapes = [
-    { size: 80, top: 15, left: 10, color: 'bg-corporate-gold/20', delay: 0 },
-    { size: 100, top: 60, left: 80, color: 'bg-corporate-blue/20', delay: 2 },
-    { size: 120, top: 35, left: 40, color: 'bg-corporate-gold/15', delay: 4 },
-  ];
-
   return (
-    <div className="bg-white min-h-screen relative">
+    <div className="bg-[#F9F2D6] min-h-screen relative font-sans selection:bg-[#308667] selection:text-white">
 
       {/* ================= HERO SECTION ================= */}
-      <section
-        className="relative border-b border-slate-200 py-28 md:py-32 bg-cover bg-center bg-no-repeat overflow-hidden"
-        style={{
-          backgroundImage:
-            "url('https://unsplash.com/photos/aerial-top-view-containers-ship-cargo-business-commercial-trade-logistic-and-transportation-of-international-import-export-by-container-freight-cargo-ship-in-the-open-seaport-GuGFpnGwVzI')",
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#0A1F44]/75 pointer-events-none"></div>
+      <section className="relative bg-[#308667] border-b border-[#122C21]/10 py-32 overflow-hidden">
 
-        {/* Floating Shapes */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {floatingShapes.map((sh, i) => (
-            <motion.div
-              key={i}
-              initial={{ y: 0, opacity: 0.6 }}
-              animate={{ y: [0, 20, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 8 + i * 2,
-                delay: sh.delay,
-                ease: "easeInOut",
-              }}
-              style={{
-                top: `${sh.top}%`,
-                left: `${sh.left}%`,
-                width: sh.size,
-                height: sh.size,
-              }}
-              className={`${sh.color} rounded-full absolute`}
-            />
-          ))}
-        </div>
+        {/* Local Image Pattern */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `url(${bgPattern})`,
+            backgroundSize: '150px 150px',
+            backgroundRepeat: 'repeat'
+          }}
+        />
 
-        <div className="relative container mx-auto px-6 max-w-7xl text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#122C21]/20 z-0" />
+
+        <div className="relative container mx-auto px-6 max-w-7xl z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-            className="text-5xl md:text-6xl font-extrabold text-[#D4AF37] mb-4 tracking-tight"
+            transition={{ duration: 0.6 }}
           >
-            Our <span className="text-corporate-gold">End-to-End</span> Trade Solutions
-          </motion.h1>
+            <motion.h1
+              className="text-5xl md:text-7xl font-black text-[#F9F2D6] mb-6 tracking-tighter uppercase leading-[0.9]"
+              style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+            >
+              Strategic <br /><span className="text-[#122C21]">Trade Services</span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-[#D4AF37] max-w-4xl mx-auto"
-          >
-            We offer services designed to streamline your operations, reduce risk, and ensure regulatory compliance in the dynamic Ethiopian market.
-          </motion.p>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+              We offer services designed to streamline your operations, reduce risk, and ensure <b className="font-bold text-[#F9F2D6]">regulatory compliance</b> in the dynamic Ethiopian market.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="relative py-20">
-        {/* Subtle pattern background (optional) */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/white-paper.png')] opacity-10 pointer-events-none"></div>
-
+      <section className="relative py-24 -mt-20 z-20">
         <div className="relative container mx-auto px-6 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {SERVICES_LIST.map((service, index) => {
-              const ServiceIcon = getIcon(index);
               return (
                 <motion.div
                   key={index}
                   variants={cardVariants}
                   initial="initial"
                   animate="animate"
+                  whileHover="hover"
                   transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="group"
                 >
-                  <motion.div
-                    className="p-8 bg-white border border-slate-200 rounded-xl shadow-lg flex flex-col justify-between h-full group transition-all duration-300 cursor-pointer hover:border-corporate-gold/50 hover:bg-linear-to-t hover:from-corporate-gold/10 hover:to-white"
-                    whileHover="hover"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-corporate-blue/10 text-corporate-blue flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-corporate-gold group-hover:text-[#0A1F44]">
-                      <ServiceIcon className="w-7 h-7 stroke-2" />
+                  <Link to={`/services/${service.slug}`} className="block h-full">
+                    <div className="p-10 bg-white rounded-[2.5rem] shadow-xl border border-[#122C21]/5 flex flex-col justify-between h-full transition-all duration-500 group-hover:border-[#308667]/30 relative overflow-hidden">
+
+                      {/* Background Hover Effect */}
+                      <div className="absolute inset-0 bg-[#308667]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                      <div className="relative z-10">
+                        <div className="w-16 h-16 rounded-2xl bg-[#122C21] text-[#F9F2D6] flex items-center justify-center mb-8 text-2xl shadow-lg group-hover:bg-[#308667] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+                          {getIcon(service.name)}
+                        </div>
+
+                        <h2 className="text-3xl font-black text-[#122C21] mb-4 uppercase tracking-tight group-hover:text-[#308667] transition-colors">
+                          {service.name}
+                        </h2>
+                        <p className="text-gray-600 mb-8 font-medium leading-relaxed text-lg group-hover:text-gray-900 transition-colors">
+                          {service.shortDesc}
+                        </p>
+                      </div>
+
+                      <div className="relative z-10 flex items-center text-sm font-black uppercase tracking-widest text-[#308667] group-hover:text-[#122C21] transition-colors">
+                        Explore Service <FaArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
+                      </div>
                     </div>
-                    <h2 className="text-xl font-bold text-[#0A1F44] mb-3 transition-colors duration-300 group-hover:text-corporate-blue">
-                      {service.name}
-                    </h2>
-                    <p className="text-gray-600 mb-6 grow">{service.shortDesc}</p>
-                    <Link
-                      to={`/services/${service.slug}`}
-                      className="inline-flex items-center text-corporate-gold font-semibold transition-colors duration-300 group-hover:text-corporate-blue group-hover:translate-x-1"
-                    >
-                      Learn More
-                      <svg
-                        className="w-4 h-4 ml-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
-                  </motion.div>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -172,25 +124,32 @@ const ServicesIndex: React.FC = () => {
       </section>
 
       {/* ================= CTA Section ================= */}
-      <section className="bg-corporate-blue mt-12 py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-r from-[#0A1F44]/85 via-[#0A1F44]/70 to-[#0A1F44]/85 pointer-events-none"></div>
+      <section className="bg-[#308667] mt-0 py-24 relative overflow-hidden">
+        {/* Local Image Pattern */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `url(${bgPattern})`,
+            backgroundSize: '150px 150px',
+            backgroundRepeat: 'repeat'
+          }}
+        />
 
-        <div className="relative container mx-auto px-6 max-w-7xl text-center">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-[#D4AF37] mb-4">
-            Let's Build Your Successful Trade Strategy
+        <div className="relative container mx-auto px-6 max-w-7xl text-center z-10">
+          <h3 className="text-3xl md:text-5xl font-black text-[#F9F2D6] mb-6 uppercase tracking-tight leading-none">
+            Let's Build Your <br /><span className="text-[#122C21]">Success Strategy</span>
           </h3>
-          <p className="text-lg text-[#D4AF37] mb-6">
+          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto font-medium">
             Our specialists are ready to simplify your most complex import and export challenges.
           </p>
           <Link to='/contact'>
-            <motion.a
-
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212,175,55,0.8)' }}
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(18, 44, 33, 0.4)' }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-12 py-5 text-lg md:text-xl font-bold  border-2 border-[#D4AF37] text-[#D4AF37] rounded-full transition-all duration-300 uppercase tracking-wider shadow-lg hover:brightness-110 hover:shadow-2xl"
+              className="inline-block px-12 py-5 text-sm font-black bg-[#122C21] text-white rounded-2xl transition-all duration-300 uppercase tracking-[0.2em] shadow-lg hover:bg-white hover:text-[#122C21]"
             >
               Contact Us
-            </motion.a>
+            </motion.button>
           </Link>
         </div>
       </section>

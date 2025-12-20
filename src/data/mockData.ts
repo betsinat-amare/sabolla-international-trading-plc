@@ -16,16 +16,15 @@ export const ACHIEVEMENTS = [
 
 // 3. Products (Categories)
 export const PRODUCT_CATEGORIES = [
-  { name: "Aviation Systems", slug: "aviation", description: "VHF, AMHS, AIM, AIS" },
-  { name: "Military Communication", slug: "military-comm", description: "Navigation equipment" },
-  { name: "Fire & Disaster Management", slug: "fire-disaster", description: "Fire trucks, ladders, foam, powder" },
-  { name: "Safety & Security", slug: "safety-security", description: "Fire suits, breathing apparatus" },
-  { name: "Agricultural Implements", slug: "agriculture", description: "Hermetic & jute bags" },
-  // { name: "Water and Sewerage Industry", slug: "Water and Sewerage Industry", description: "Water and Sewerage Industry"" },
-  // { name: "Power and Energy", slug: "Power and Energy", description: "Power and Energy" },
-  // { name: "Transportation and Storage", slug: "Transportation and Storage", description: "Transportation and Storage" },
+  { name: "Aviation", slug: "aviation", desc: "Critical communication, navigation, and information-management systems." },
+  { name: "Military", slug: "military", desc: "Advanced defense technologies meeting exacting military standards." },
+  { name: "Fire & Disaster Risk", slug: "fire-disaster", desc: "Extensive range of firefighting and emergency-response equipment." },
+  { name: "Safety & Security", slug: "safety-security", desc: "Specialized protective gear for high-risk and industrial environments." },
+  { name: "Agricultural Products", slug: "agriculture", desc: "Storage, post-harvest protection, and essential implements." },
+  { name: "Water & Sewerage", slug: "water-sewerage", desc: "Infrastructure equipment for urban service delivery and sanitation." },
+  { name: "Power & Energy", slug: "power-energy", desc: "Electrical infrastructure components for scalable energy systems." },
+  { name: "Transportation & Storage", slug: "transportation", desc: "Heavy machinery, specialized tires, and storage solutions." }
 
-  // ... rest of the categories
 ];
 
 // 4. Services
@@ -45,7 +44,7 @@ export const PARTNER_LOGOS = [
 
 // 6. Contact Info
 export const CONTACT_INFO = {
-    address: "123 Sabolla Corporate Tower, Addis Ababa, Ethiopia",
-    email: "info@sabolla-trading.com",
-    phone: "+251 11 878 0000",
+  address: "123 Sabolla Corporate Tower, Addis Ababa, Ethiopia",
+  email: "info@sabolla-trading.com",
+  phone: "+251 11 878 0000",
 };

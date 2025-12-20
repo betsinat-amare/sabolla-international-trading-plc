@@ -1,35 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-corporate-blue: #0c2d48;
-  --color-corporate-gold: #b19747;
-  --color-neutral-gray: #f3f4f6;
+  /* New Sabolla Palette */
+  --color-sabolla-black: #0E1713;
+  --color-sabolla-dark-green: #132C21;
+  --color-sabolla-medium-green: #397764;
+  --color-sabolla-light-green: #318F68;
+  --color-sabolla-white: #F9F2D6;
+
+  /* Legacy Mappings */
+  --color-corporate-blue: var(--color-sabolla-dark-green);
+  --color-corporate-gold: var(--color-sabolla-light-green);
+  --color-neutral-gray: var(--color-sabolla-white);
+
+  /* Font Family Override */
+  --font-display: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
 }
 
 :root {
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  /* Secondary Typography: Montserrat Medium */
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #fff;
+  background: var(--color-sabolla-white);
+  color: var(--color-sabolla-black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  /* Primary Typography: Montserrat Black */
 }
 
 * {
   box-sizing: border-box;
 }
+
 /* Hide scrollbar for slider */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE & Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
